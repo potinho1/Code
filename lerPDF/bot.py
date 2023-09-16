@@ -1,60 +1,24 @@
-"""
-WARNING:
+#Importando blibioteca
+from botcity.document_processing import *
 
-Please make sure you install the bot with `pip install -e .` in order to get all the dependencies
-on your Python environment.
-
-Also, if you are using PyCharm or another IDE, make sure that you use the SAME Python interpreter
-as your IDE.
-
-If you get an error like:
-```
-ModuleNotFoundError: No module named 'botcity'
-```
-
-This means that you are likely using a different Python interpreter than the one used to install the bot.
-To fix this, you can either:
-- Use the same interpreter as your IDE and install your bot with `pip install --upgrade -r requirements.txt`
-- Use the same interpreter as the one used to install the bot (`pip install --upgrade -r requirements.txt`)
-
-Please refer to the documentation for more information at https://documentation.botcity.dev/
-"""
-
-# Import for the Desktop Bot
-from botcity.core import DesktopBot
-
-# Import for integration with BotCity Maestro SDK
-from botcity.maestro import *
-
-# Disable errors if we are not connected to Maestro
-BotMaestroSDK.RAISE_NOT_CONNECTED = False
-
-def main():
-    # Runner passes the server url, the id of the task being executed,
-    # the access token and the parameters that this task receives (when applicable).
-    maestro = BotMaestroSDK.from_sys_args()
-    ## Fetch the BotExecution with details from the task, including parameters
-    execution = maestro.get_execution()
-
-    print(f"Task ID is: {execution.task_id}")
-    print(f"Task Parameters are: {execution.parameters}")
-
-    bot = DesktopBot()
-    bot.browse("http://www.botcity.dev")
-
-    # Implement here your logic...
-    ...
-
-    # Uncomment to mark this task as finished on BotMaestro
-    # maestro.finish_task(
-    #     task_id=execution.task_id,
-    #     status=AutomationTaskFinishStatus.SUCCESS,
-    #     message="Task Finished OK."
-    # )
-
-def not_found(label):
-    print(f"Element not found: {label}")
-
-
-if __name__ == '__main__':
-    main()
+def lerPDF(arquivo):
+    reader = PDFReader()
+    parser = reader.read_file(r"C:\Users\gomes\Documents\Code\lerPDF\docs\Contoso_INVOICE_TailSpin.pdf")
+    
+    _date = parser.get_first_entry("Date:")
+    value = parser.read(_date, 1.214286, -1.5, 3.452381, 3.1)
+    print(f"Date: {value}")
+    
+    _bill_to = parser.get_first_entry("Bill to:")
+    value = parser.read(_bill_to, 1.314815, -2.2, 5.62963, 4.4)
+    print(f"Bill to: {value}")
+    
+    _contact = parser.get_first_entry("Contact:")
+    value = parser.read(_contact, 1.236842, -1, 4.802632, 2.8)
+    print(f"Contact: {value}")
+    
+    _balance_due = parser.get_first_entry("Balance due:")
+    value = parser.read(_balance_due, 1.126667, -1.666667, 1.76, 3.5)
+    print(f"Balance due: {value}")
+    
+lerPDF()
