@@ -22,3 +22,5 @@ def lerPDF(arquivo):
     print(f"Balance due: {value}")
     
 lerPDF()
+
+# Criar a variavel JAVA_HOME
