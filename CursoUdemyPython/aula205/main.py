@@ -34,11 +34,23 @@ connection.commit()
 
 # Reristrando os valores na tabela 
 # CUIDADO SE ESTIVER RECEBENDO OS VALORES DO USUARIOS NÃO FAÇA DESSE JEITO, PODE FACILITAR O SQL INJECTION
+# Aqui eu escrevo os dentro do sql os valores
 cursor.execute(
-    f'INSERT INTO {TABLE_NAME} (id, name, weight) '
-    'VALUES (NULL, "Potinho", 9.9)'
+    f'INSERT INTO {TABLE_NAME} '
+    '(id, name, weight) '
+    'VALUES '
+    '(NULL, "Potinho", 101)'
 )
-
+'''
+# Já nesse codigo ele é mais seguro pq eu separo o que é codigo e valor
+sql = (
+    f'INSERT INTO {TABLE_NAME} ' 
+    '(name, weight) '
+    'VALUES '
+    '(?, ?)'
+)
+cursor.execute(sql, ['Potinho', 10])
+'''
 connection.commit()
 
 cursor.close()
