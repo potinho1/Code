@@ -10,6 +10,7 @@ TABLE_NAME = 'customers'
 connection = sqlite3.connect(DB_FILE)
 cursor = connection.cursor()
  
+# Cria a tabela 
 cursor.execute(
     f'CREATE TABLE IF NOT EXISTS {TABLE_NAME}'
     '('
@@ -19,6 +20,9 @@ cursor.execute(
     ')'
 )
 connection.commit()
+
+# Reristrando os valores na tabela 
+
 
 cursor.close()
 connection.close()
