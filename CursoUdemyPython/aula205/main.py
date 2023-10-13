@@ -76,3 +76,14 @@ connection.close()
 
 if __name__ == '__main__':
     print(sql)
+
+
+'''
+CRUD = CREATE-READ-UPDATE-DELETE
+
+SQL = INSERT-SELECT-UPDATE-DELETE
+
+Nunca faça um UPDATE sem o WHERE
+
+Nunca fazer um DELETE sem o WHERE 
+'''
