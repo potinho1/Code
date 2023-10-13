@@ -31,7 +31,7 @@ cursor.execute(
     ')'
 )
 connection.commit()
-
+'''
 # Reristrando os valores na tabela 
 # CUIDADO SE ESTIVER RECEBENDO OS VALORES DO USUARIOS NÃO FAÇA DESSE JEITO, PODE FACILITAR O SQL INJECTION
 # Aqui eu escrevo os dentro do sql os valores
@@ -49,8 +49,9 @@ sql = (
     'VALUES '
     '(?, ?)'
 )
-cursor.execute(sql, ['Potinho', 10])
-'''
+# Esse comando permite que você mande mais de um conjunto de dados
+cursor.executemany(sql, [['Potinho', 10], ['João', 11]])
+
 connection.commit()
 
 cursor.close()
