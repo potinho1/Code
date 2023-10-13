@@ -1,5 +1,4 @@
 import sqlite3
-
 from pathlib import Path
 
 ROOT_DIR = Path(__file__).parent
@@ -74,3 +73,6 @@ connection.commit()
 
 cursor.close()
 connection.close()
+
+if __name__ == '__main__':
+    print(sql)

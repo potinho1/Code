@@ -1,0 +1,21 @@
+import sqlite3
+from main import DB_FILE, TABLE_NAME
+
+connection = sqlite3.connect(DB_FILE)
+cursor = connection.cursor()
+
+cursor.execute(
+    f'SELECT * FROM {TABLE_NAME} '
+    'WHERE id = "3"'
+)
+
+# for row in cursor.fetchall():
+#     _id, name, weight = row
+#     print(_id, name, weight)
+
+# Busca determinado ID 
+rom = cursor.fetchone()
+print(rom)
+
+cursor.close()
+connection.close()
