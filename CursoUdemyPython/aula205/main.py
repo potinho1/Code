@@ -47,10 +47,23 @@ sql = (
     f'INSERT INTO {TABLE_NAME} ' 
     '(name, weight) '
     'VALUES '
-    '(?, ?)'
+    '(:nome, :idade)'
 )
 # Esse comando permite que você mande mais de um conjunto de dados
-cursor.executemany(sql, [['Potinho', 10], ['João', 11]])
+#cursor.executemany(sql, [['Potinho', 10], ['João', 11]])
+
+# Trabalhando com dicionarios 
+cursor.execute(sql, {'nome': 'PotinhoJoao', 'idade': 190})
+
+cursor.executemany(sql, [
+    {'nome': 'PotinhoJoao', 'idade': 190},
+    {'nome': 'joao', 'idade': 11},
+    {'nome': 'Vitor', 'idade': 3},
+
+
+])
+
+
 
 connection.commit()
 
