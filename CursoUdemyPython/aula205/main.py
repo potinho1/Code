@@ -12,14 +12,19 @@ cursor = connection.cursor()
 
 # CUIDADO: fazendo delete sem where
 
-'''
-Se quiser apagar os id da tabela
+''''''
+#Se quiser apagar os id da tabela
+# Deleta a tabela e o que tem nela
+cursor.execute(
+    f'DELETE FROM {TABLE_NAME}'
+)
 
-curso.execute(
-    f'DELETE FROM sqlite_sequence WHWRE name="{TABLE_NAME}"'
+# Apaga a sequencia de ID
+cursor.execute(
+    f'DELETE FROM sqlite_sequence WHERE name="{TABLE_NAME}"'
 )
 connection.commit()
-'''
+
  
 # Cria a tabela 
 cursor.execute(
@@ -47,7 +52,7 @@ sql = (
     f'INSERT INTO {TABLE_NAME} ' 
     '(name, weight) '
     'VALUES '
-    '(:nome, :idade)'
+    '(:nome, :idade)'   
 )
 # Esse comando permite que você mande mais de um conjunto de dados
 #cursor.executemany(sql, [['Potinho', 10], ['João', 11]])
@@ -58,7 +63,7 @@ cursor.execute(sql, {'nome': 'PotinhoJoao', 'idade': 190})
 cursor.executemany(sql, [
     {'nome': 'PotinhoJoao', 'idade': 190},
     {'nome': 'joao', 'idade': 11},
-    {'nome': 'Vitor', 'idade': 3},
+    {'nome': 'Vitor', 'idade': 9},
 
 
 ])
