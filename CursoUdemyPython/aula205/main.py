@@ -68,14 +68,22 @@ cursor.executemany(sql, [
 ])
 
 
+connection.commit()
+
+
+if __name__ == '__main__':
+    print(sql)
+
+# DELETE 
+cursor.execute(
+    f'DELETE FROM {TABLE_NAME} '
+    'WHERE id =1'
+)
 
 connection.commit()
 
 cursor.close()
 connection.close()
-
-if __name__ == '__main__':
-    print(sql)
 
 
 '''
