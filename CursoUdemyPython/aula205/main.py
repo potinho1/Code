@@ -1,7 +1,9 @@
 import sqlite3
 from pathlib import Path
 
+# Sempre vai buscar o diretorio que o "main.py" estiver localizado
 ROOT_DIR = Path(__file__).parent
+
 DB_NAME = 'db.sqlite3'
 DB_FILE = ROOT_DIR / DB_NAME
 TABLE_NAME = 'customers'
