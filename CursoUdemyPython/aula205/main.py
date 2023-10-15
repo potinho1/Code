@@ -3,12 +3,16 @@ from pathlib import Path
 
 # Sempre vai buscar o diretorio que o "main.py" estiver localizado
 ROOT_DIR = Path(__file__).parent
-
+# Crio o nome do arquivo de banco de dados
 DB_NAME = 'db.sqlite3'
+# Junto o diretorio e o nome onde eu vou cirar o BD
 DB_FILE = ROOT_DIR / DB_NAME
+# Criando o nome da tabela
 TABLE_NAME = 'customers'
 
+# Abro a conexao com o banco
 connection = sqlite3.connect(DB_FILE)
+# executa comandos SQL
 cursor = connection.cursor()
 
 # CUIDADO: fazendo delete sem where
