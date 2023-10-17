@@ -4,7 +4,7 @@
 # positivo ou negativo. int sem sinal é considerado positivo.
 print(11) # int
 print(-11) # int
-print() # int
+print(0) # int
 
 # float -> Número com ponto flutuante
 # O tipo float representa qualquer número
