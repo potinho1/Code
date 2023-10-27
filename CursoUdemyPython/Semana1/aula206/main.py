@@ -2,6 +2,8 @@ import pymysql
 import dotenv
 import os
 
+TABLE_NAME = 'customers'
+
 # Carrega variaveis de ambiente 
 dotenv.load_dotenv()
 
@@ -11,6 +13,7 @@ connection = pymysql.connect(
     user=os.environ['MYSQL_USER'],
     password=os.environ['MYSQL_PASSWORD'],
     database=os.environ['MYSQL_DATABASE'],
+    charset='utf8mb4'
 )
 
 # Criando a tabela 'customers' se ela não existir
@@ -20,13 +23,36 @@ with connection:
     with connection.cursor() as cursor:
       # Executa a criação da tabela, se ela não existir
       cursor.execute(
-        'CREATE TABLE ID NOT EXISTS customers ('
+        f'CREATE TABLE IF NOT EXISTS {TABLE_NAME} ('
         'id INT NOT NULL AUTO_INCREMENT, '
         'nome VARCHAR(50) NOT NULL, '
         'idade INT NOT NULL, '
-        'PRIMARY KEY (id)'
+        'PRIMARY KEY (id) '
         ') '
       )
       # Confirma as alterações feitas no banco
+      cursor.execute(f'TRUNCATE TABLE {TABLE_NAME}') # Limpa a tabela
+    connection.commit()
+
+    # Criando a função cursor
+    with connection.cursor() as cursor:
+      # Inserindo dados na tabela
+      result = cursor.execute(
+        f'INSERT INTO {TABLE_NAME} '
+        '(nome, idade) VALUES ("Potinho", 22)'
+      )
+      print(result)
+      # Inserindo dados na tabela
+      result = cursor.execute(
+        f'INSERT INTO {TABLE_NAME} '
+        '(nome, idade) VALUES ("João", 23)'
+      )
+      print(result)
+      # Inserindo dados na tabela
+      result = cursor.execute(
+        f'INSERT INTO {TABLE_NAME} '
+        '(nome, idade) VALUES ("Vitor", 24)'
+      )
+      print(result)
+      # Confirma as alterações feitas no banco
       connection.commit()
-      print(cursor)
