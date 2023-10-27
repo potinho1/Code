@@ -55,4 +55,4 @@ with connection:
       )
       print(result)
       # Confirma as alterações feitas no banco
-      connection.commit()
+    connection.commit()
