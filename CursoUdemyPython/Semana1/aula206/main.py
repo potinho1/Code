@@ -36,23 +36,15 @@ with connection:
 
     # Criando a função cursor
     with connection.cursor() as cursor:
+      sql = (f'INSERT INTO {TABLE_NAME} '
+            '(nome, idade) '
+            'VALUES'
+            '(%s,%s)'
+          )
+      data = ('Potinho', 22)
       # Inserindo dados na tabela
-      result = cursor.execute(
-        f'INSERT INTO {TABLE_NAME} '
-        '(nome, idade) VALUES ("Potinho", 22)'
-      )
-      print(result)
-      # Inserindo dados na tabela
-      result = cursor.execute(
-        f'INSERT INTO {TABLE_NAME} '
-        '(nome, idade) VALUES ("João", 23)'
-      )
-      print(result)
-      # Inserindo dados na tabela
-      result = cursor.execute(
-        f'INSERT INTO {TABLE_NAME} '
-        '(nome, idade) VALUES ("Vitor", 24)'
-      )
+      result = cursor.execute(sql, data)
+      print(sql,data)
       print(result)
       # Confirma as alterações feitas no banco
     connection.commit()
