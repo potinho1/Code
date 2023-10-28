@@ -4,6 +4,8 @@ import os
 
 TABLE_NAME = 'customers'
 
+teste = "Potinuopooooo"
+
 # Carrega variaveis de ambiente 
 dotenv.load_dotenv()
 
@@ -16,7 +18,7 @@ connection = pymysql.connect(
     charset='utf8mb4'
 )
 
-# Criando a tabela 'customers' se ela não existir
+# Criando a tabela 'customers' se ela não existir  
 # conexao com o banco
 with connection:
     # Criando a função cursor
@@ -39,12 +41,33 @@ with connection:
       sql = (f'INSERT INTO {TABLE_NAME} '
             '(nome, idade) '
             'VALUES'
-            '(%s,%s)'
+            '(%(nome)s, %(idade)s)'
           )
-      data = ('Potinho', 22)
+      data = { 
+         "nome": teste,
+         "idade": 22,
+      }
       # Inserindo dados na tabela
       result = cursor.execute(sql, data)
-      print(sql,data)
-      print(result)
+      # print(sql,data)
+      # print(result)
       # Confirma as alterações feitas no banco
     connection.commit()
+
+    # Criando a função cursor
+    with connection.cursor() as cursor:
+      sql = (f'INSERT INTO {TABLE_NAME} '
+            '(nome, idade) '
+            'VALUES'
+            '(%(nome)s, %(idade)s)'
+          )
+      data1 = ({ 
+         "nome": "Poti",
+         "idade": 22,
+      },
+      {
+        "nome": "João",
+        "idade": 90 
+      })
+      result1 = cursor.executemany(sql, data1)
+      connection.commit()
