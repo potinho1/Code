@@ -48,7 +48,7 @@ with connection:
          "idade": 22,
       }
       # Inserindo dados na tabela
-      result = cursor.execute(sql, data)
+      #result = cursor.execute(sql, data)
       # print(sql,data)
       # print(result)
       # Confirma as alterações feitas no banco
@@ -70,4 +70,16 @@ with connection:
         "idade": 90 
       })
       result1 = cursor.executemany(sql, data1)
-      connection.commit()
+    connection.commit()
+
+    # Lendo valores na tabela
+    with connection.cursor() as cursor:
+      sql = (f'SELECT * FROM {TABLE_NAME} '
+             )
+      cursor.execute(sql)
+      data5 = cursor.fetchall()
+      print(data5)
+
+      for row in data5:
+        print(row)
+      
