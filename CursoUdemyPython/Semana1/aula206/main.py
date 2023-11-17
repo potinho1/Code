@@ -67,16 +67,21 @@ with connection:
       },
       {
         "nome": "João",
-        "idade": 90 
+        "idade": 100 
       })
       result1 = cursor.executemany(sql, data1)
     connection.commit()
 
     # Lendo valores na tabela
     with connection.cursor() as cursor:
+      # Declarar que sua variavel é um interiro, inpedi que o usuario consiga mandar comandos privilegiados para o banco
+      menor_valor = int(input("Digite um numero: "))
+      maior_valor = int(input("Digite um numero: "))
       sql = (f'SELECT * FROM {TABLE_NAME} '
+             'WHERE id BETWEEN %s AND %s'
              )
-      cursor.execute(sql)
+      cursor.execute(sql, (menor_valor, maior_valor))
+      print(cursor.mogrify(sql, (menor_valor,maior_valor)))
       data5 = cursor.fetchall()
       print(data5)
 
