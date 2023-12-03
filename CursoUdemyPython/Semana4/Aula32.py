@@ -3,16 +3,16 @@ Faça um programa que peça ao usuário para digitar um número inteiro,
 informe se este número é par ou ímpar. Caso o usuário não digite um número
 inteiro, informe que não é um número inteiro.
 """
-# try:
-#     usuario = int(input("Digite um número inteiro: "))
-#     if (usuario % 2) == 0:
-#         print("Par")
+try:
+    usuario = int(input("Digite um número inteiro: "))
+    if (usuario % 2) == 0:
+        print("Par")
     
-#     else:
-#         print("Ímpar")
+    else:
+        print("Ímpar")
 
-# except:
-#     print("Número inválido!")
+except:
+    print("Número inválido!")
 
 
 """
@@ -21,17 +21,20 @@ descrito, exiba a saudação apropriada. Ex.
 Bom dia 0-11, Boa tarde 12-17 e Boa noite 18-23.
 """
 
-# usuario = int(input("Digite a hora no formato inteiro (11:11), Pode colocar so (11): "))
+usuario = int(input("Digite a hora no formato inteiro (11:11), Pode colocar so (11): "))
 
-# if usuario == 0 or usuario <= 11:
-#     print("Bom dia!")
+try:
+    if usuario == 0 or usuario <= 11:
+        print("Bom dia!")
 
-# elif usuario == 12 or usuario <= 17:
-#     print("Boa tarde!")
+    elif usuario == 12 or usuario <= 17:
+        print("Boa tarde!")
 
-# elif usuario == 18 or usuario <= 23:
-#     print("Boa noite!")
-    
+    elif usuario == 18 or usuario <= 23:
+        print("Boa noite!")
+
+except:
+    print("Número inválido")
 
 
 """
