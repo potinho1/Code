@@ -6,6 +6,8 @@ while True:
     operador = input("Digite um operador (+,-,/,*): ")
 
     numeros_validos = None
+    num_1_f = 0
+    num_2_f = 0
 
     try:
         num_1_f = float(num_1)
@@ -16,19 +18,29 @@ while True:
     except:
         numeros_validos = None
         
-        if numeros_validos is None:
-            print("Um ou ambos dos números estão inválidos.")
-            continue
+    if numeros_validos is None:
+        print("Um ou ambos dos números estão inválidos.")
+        continue
 
-        operadores_validos = '+-/*'
+    operadores_validos = '+-/*'
 
-        if operador not in operadores_validos:
-            print("Operador inválido")
-            continue
-    
-        if len(operador) > 1:
-            print("Digite apenas um operador")
-            continue
+    if operador not in operadores_validos:
+        print("Operador inválido")
+        continue
+
+    if len(operador) > 1:
+        print("Digite apenas um operador")
+        continue
+
+    if operador == '+':
+        print(num_1_f + num_2_f)
+    elif operador == '-':
+        print(num_1_f - num_2_f)
+    elif operador == '/':
+        print(num_1_f / num_2_f)
+    elif operador == '*':
+        print(num_1_f * num_2_f)
+
 
 
 
@@ -36,3 +48,4 @@ while True:
 
     if sair is True:
         break
+
