@@ -27,3 +27,4 @@ while True:
         break
         
 
+# Refatorar para apagar pelos indeces
