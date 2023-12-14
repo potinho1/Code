@@ -29,4 +29,4 @@ while True:
         print("Digite uma opção valida!")
         
 
-# Refatorar para apagar pelos indeces
+# Refatorar para apagar pelos indeces, podemos adionara um for no apagar para ver se ele consegui achar os incices para apagalos
