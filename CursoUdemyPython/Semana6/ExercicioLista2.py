@@ -25,6 +25,8 @@ while True:
     elif usuario == 's':
         print("Saindo do programa!")
         break
+    else:
+        print("Digite uma opção valida!")
         
 
 # Refatorar para apagar pelos indeces
