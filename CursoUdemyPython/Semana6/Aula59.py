@@ -7,8 +7,8 @@ contagem regressiva começando de 10
 
 Ex.:  746.824.890-70 (746824890)
    10  9  8  7  6  5  4  3  2
-*  7   4  6  8  2  4  8  9  0
-   70  36 48 56 12 20 32 27 0
+*  4   5  8  8  5  1  7  1  8
+   40  45 64 56 30 5 28  3 16
 
 Somar todos os resultados: 
 70+36+48+56+12+20+32+27+0 = 301
@@ -23,3 +23,28 @@ contrário disso:
 
 O primeiro dígito do CPF é 7
 """
+
+usuario = input("Digite somente os números de um cpf: ")
+contagem = 11
+soma = []
+
+for numero in usuario:
+
+    contagem -= 1
+
+    if contagem == 2:
+        break
+
+    multi = int((numero)) * contagem
+
+    soma.append(multi)
+    
+
+valor = sum(soma)
+print(valor)
+
+
+    
+
+    
+
