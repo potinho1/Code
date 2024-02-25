@@ -5,7 +5,7 @@ Colete a soma dos 9 primeiros dígitos do CPF
 multiplicando cada um dos valores por uma
 contagem regressiva começando de 10
 
-Ex.:  746.824.890-70 (7468248907)
+Ex.:  746.824.890-70 (7468248907) 74682489070
    10  9  8  7  6  5  4  3  2
 *  4   5  8  8  5  1  7  1  8
    40  45 64 56 30 5 28  3 16
@@ -43,10 +43,10 @@ for numero in usuario:
 
 Total_resultado = resultado % 11
 
-if Total_resultado > 9:
-    print(0)
+if Total_resultado >= 9:
+    print("Seu numero primeiro numero do CPF: 0")
 else:
-    print(Total_resultado)
+    print(f"Seu numero primeiro numero do CPF: {Total_resultado}")
 
 
 
@@ -55,10 +55,10 @@ usuario2 = input("Digite somente os números de um cpf: ")
 contagem2 = 12
 soma2 = [] 
 
-for numero in usuario2:
+for numero2 in usuario2:
     contagem2 -= 1
     
-    mult2 = contagem2 * int(numero)
+    mult2 = contagem2 * int(numero2)
     soma2.append(mult)
 
     total2 = sum(soma2)
@@ -70,9 +70,9 @@ for numero in usuario2:
 print(resultado2)
 Total_resultado2 = resultado2 % 11
 
-if Total_resultado2 > 9:
-    print(0)
+if Total_resultado2 >= 9:
+    print("Seu numero segundo numero do CPF: 0")
 else:
-    print(Total_resultado2)
+    print(f"Seu numero segundo numero do CPF: {Total_resultado2}")
 
 
