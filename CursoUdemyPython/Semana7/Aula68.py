@@ -26,3 +26,6 @@ print(x)
 # Dessa forma a variavel que está no inicio do codigo ela vai entrar como global pra aquela função.
 
 # Depois que executar a vairavel global da função, você vai poder manipiular ela. Então se x comecou com 1 e você definir uma varivel x = 10. logo x vai valer 10.
+
+
+# Lembrando que usar o GLOBAL seria uma má pratica.
