@@ -61,7 +61,7 @@ for p in perguntas:
     
     resposta_certa = p.get('Resposta')
 
-    usuario = input("Escolha a opção certa: ")
+    usuario = input("Escolha a resposta certa: ")
 
     if usuario == resposta_certa:
         acertos += 1
@@ -72,3 +72,6 @@ for p in perguntas:
 
 print(f"""Acertos: {acertos} 
 Erros: {erros} """)
+
+
+# Exemplo do professor
