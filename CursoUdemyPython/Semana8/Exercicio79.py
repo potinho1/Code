@@ -75,7 +75,7 @@ Erros: {erros} """)
 
 
 # Exemplo do professor
-
+"""
 qtd_acertos = 0
 for pergunta in perguntas:
     print('Pergunta:', pergunta['Pergunta'])
@@ -111,4 +111,4 @@ for pergunta in perguntas:
 
 
 print('Você acertou', qtd_acertos)
-print('de', len(perguntas), 'perguntas.')
+print('de', len(perguntas), 'perguntas.')"""
