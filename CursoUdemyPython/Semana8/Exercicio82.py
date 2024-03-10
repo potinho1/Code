@@ -39,3 +39,26 @@ def primeiro_duplicado(lista):
 # Testando a função com as listas fornecidas
 for lista in lista_de_listas_de_inteiros:
     print(primeiro_duplicado(lista))
+
+
+# Exemplo professor
+    
+def encontra_primeiro_duplicado(lista_de_inteiros):
+    numeros_checados = set()
+    primeiro_duplicado = -1
+
+    for numero in lista_de_inteiros:
+        if numero in numeros_checados:
+            primeiro_duplicado = numero
+            break
+
+        numeros_checados.add(numero)
+
+    return primeiro_duplicado
+
+
+for lista in lista_de_listas_de_inteiros:
+    print(
+        lista,
+        encontra_primeiro_duplicado(lista)
+    )
